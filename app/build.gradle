@@ -29,7 +29,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
 }
 
 dependencies {
@@ -57,12 +56,19 @@ dependencies {
     implementation 'com.airbnb.android:lottie:5.0.3'
 
     implementation 'com.squareup.okhttp3:mockwebserver:5.0.0-alpha.6'
-    implementation 'io.mockk:mockk:1.12.3'
-    implementation 'io.mockk:mockk-android:1.12.3'
-    implementation 'org.mockito:mockito-android:4.4.0'
-    implementation 'org.mockito:mockito-core:4.4.0'
+//    implementation 'io.mockk:mockk:1.12.3'
+//    implementation 'io.mockk:mockk-android:1.12.3'
+//    implementation 'org.mockito:mockito-android:4.4.0'
+//    implementation 'org.mockito:mockito-core:4.4.0'
 
-    implementation "io.reactivex.rxjava2:rxjava:2.2.21"
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    def koin_version = '3.2.0-beta-1'
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
+    implementation "io.insert-koin:koin-androidx-workmanager:$koin_version"
+    implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
+    implementation "io.insert-koin:koin-androidx-compose:$koin_version"
 }
