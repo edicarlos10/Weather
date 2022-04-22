@@ -1,6 +1,6 @@
-package com.example.network.weather.remote.api
+package com.example.network.weather.search.remote.api
 
-import com.example.network.weather.remote.response.WeatherResponse
+import com.example.network.weather.search.remote.response.WeatherResponse
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.GET

@@ -1,8 +1,8 @@
-package com.example.domain.weather.usecase
+package com.example.domain.weather.search.usecase
 
 import com.example.domain.weather.IweatherRepository
 import com.example.domain.weather.base.Event
-import com.example.domain.weather.model.Weather
+import com.example.domain.weather.search.model.Weather
 import com.example.domain.weather.base.ThrowableBase
 import io.reactivex.Observable
 

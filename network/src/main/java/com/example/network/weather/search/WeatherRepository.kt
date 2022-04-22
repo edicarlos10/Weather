@@ -1,9 +1,9 @@
-package com.example.network.weather
+package com.example.network.weather.search
 
 import com.example.domain.weather.IweatherRepository
 import com.example.domain.weather.base.ThrowableBase
-import com.example.domain.weather.model.Weather
-import com.example.network.weather.remote.IWeatherRemoteData
+import com.example.domain.weather.search.model.Weather
+import com.example.network.weather.search.remote.IWeatherRemoteData
 import io.reactivex.Single
 
 class WeatherRepository (private val remoteData: IWeatherRemoteData) : IweatherRepository {

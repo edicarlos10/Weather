@@ -1,7 +1,7 @@
-package com.example.network.weather.remote
+package com.example.network.weather.search.remote
 
-import com.example.domain.weather.model.Weather
-import com.example.network.weather.remote.api.IWeatherApiClient
+import com.example.domain.weather.search.model.Weather
+import com.example.network.weather.search.remote.api.IWeatherApiClient
 import io.reactivex.Single
 
 class WeatherRemoteData (private val apiWeatherClient: IWeatherApiClient) : IWeatherRemoteData{
