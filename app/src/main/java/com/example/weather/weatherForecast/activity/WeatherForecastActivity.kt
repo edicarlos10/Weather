@@ -1,16 +1,15 @@
-package com.example.weather.search.activity
+package com.example.weather.weatherForecast.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import com.example.weather.R
-import com.example.weather.databinding.ActivitySearchBinding
+import com.example.weather.databinding.ActivityWeatherForecastBinding
 import com.example.weather.extension.viewBinding
 
-class SearchActivity : AppCompatActivity() {
+class WeatherForecastActivity : AppCompatActivity() {
 
-    private val binding by viewBinding(ActivitySearchBinding::inflate)
+    private val binding by viewBinding(ActivityWeatherForecastBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +19,6 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun initFragment() {
-       findNavController(R.id.constraintSearch).navigate(R.id.frameWeatherCity)
+       findNavController(R.id.constraintWeatherForecast).navigate(R.id.frameWeatherForecastCity)
     }
 }
