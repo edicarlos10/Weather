@@ -4,12 +4,12 @@ import com.example.network.weather.weatherForecast.remote.response.WeatherForeca
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface IWeatherForecastApiClient {
-    @GET("https://api.openweathermap.org/data/2.5/weather?q={q}&appid={appid}")
+    @GET("data/2.5/weather")
     fun getWeatherForecast(
-        @Path("q") q: String,
-        @Path("appid") appid: String
+        @Query("q") q: String,
+        @Query("appid") appid: String
     ): Single<Response<WeatherForecastResponse>>
 }

@@ -2,10 +2,9 @@ package com.example.weather.weatherForecast.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import com.example.weather.R
 import com.example.weather.databinding.ActivityWeatherForecastBinding
 import com.example.weather.extension.viewBinding
+import com.example.weather.weatherForecast.fragment.WeatherForecastCityFragment
 
 class WeatherForecastActivity : AppCompatActivity() {
 
@@ -19,6 +18,9 @@ class WeatherForecastActivity : AppCompatActivity() {
     }
 
     private fun initFragment() {
-       findNavController(R.id.constraintWeatherForecast).navigate(R.id.frameWeatherForecastCity)
+        val weatherForecastCityFragment = WeatherForecastCityFragment.newInstance()
+        supportFragmentManager.beginTransaction()
+            .add(binding.constraintWeatherForecast.id, weatherForecastCityFragment)
+            .commit()
     }
 }

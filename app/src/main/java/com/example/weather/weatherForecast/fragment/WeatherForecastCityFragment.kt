@@ -14,17 +14,23 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class WeatherForecastCityFragment : Fragment() {
     companion object{
         private const val appid = "58611e500e6bfe3dd41851e99a88a932"   //Weather api key
+        fun newInstance() : WeatherForecastCityFragment{
+            val args = Bundle().apply {  }
+            val fragment = WeatherForecastCityFragment()
+            fragment.arguments = args
+            return fragment
+        }
     }
 
-    private val searchViewModel by viewModel<WeatherForecastViewModel>()
+    private val weatherForecastViewModel: WeatherForecastViewModel by viewModel()
     private var _binding: FragmentWeatherForecastCityBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstance: Bundle?) {
         super.onCreate(savedInstance)
-        searchViewModel.weatherForecast.observe(this) { onData(it) }
-        searchViewModel.error.observe(this) { onError(it) }
-        searchViewModel.loading.observe(this) { onLoding(it) }
+        weatherForecastViewModel.weatherForecast.observe(this) { onData(it) }
+        weatherForecastViewModel.error.observe(this) { onError(it) }
+        weatherForecastViewModel.loading.observe(this) { onLoading(it) }
     }
 
     override fun onCreateView(
@@ -38,17 +44,21 @@ class WeatherForecastCityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        searchViewModel.getWeatherForecast("", appid)
+        weatherForecastViewModel.getWeatherForecast("Catanduva", appid)
     }
 
     private fun onData(weatherForecast: WeatherForecast?) {
         weatherForecast.let {
-            TODO("do something")
+            binding.textMain.text = it?.weather?.get(0)?.description
         }
     }
 
-    private fun onLoding(loading: Boolean?) {
-        TODO("Not yet implemented")
+    private fun onLoading(loading: Boolean?) {
+        loading?.let {
+            if (it) binding.textMain.visibility = View.GONE
+            else
+                binding.textMain.visibility = View.VISIBLE
+        }
     }
 
     private fun onError(error: Event.Error?) {
