@@ -42,6 +42,8 @@ class WeatherForecastCityFragment : Fragment() {
         return binding.root
     }
 
+    external fun stringFromJNI(): String?
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         weatherForecastViewModel.getWeatherForecast("Catanduva", appid)
