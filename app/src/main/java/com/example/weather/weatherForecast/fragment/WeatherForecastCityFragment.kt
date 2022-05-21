@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.domain.weather.base.Event
 import com.example.domain.weather.weatherForecast.model.WeatherForecast
+import com.example.weather.BuildConfig
 import com.example.weather.databinding.FragmentWeatherForecastCityBinding
 import com.example.weather.weatherForecast.WeatherForecastViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class WeatherForecastCityFragment : Fragment() {
     companion object{
-        private const val appid = "58611e500e6bfe3dd41851e99a88a932"   //Weather api key
+        private const val appid = BuildConfig.API_KEY   //Weather api key
         fun newInstance() : WeatherForecastCityFragment{
             val args = Bundle().apply {  }
             val fragment = WeatherForecastCityFragment()
@@ -41,8 +42,6 @@ class WeatherForecastCityFragment : Fragment() {
         _binding = FragmentWeatherForecastCityBinding.inflate(inflator, container, false)
         return binding.root
     }
-
-    external fun stringFromJNI(): String?
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
