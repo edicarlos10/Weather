@@ -26,4 +26,5 @@ abstract class BaseTest {
     open fun finish() {}
 
     val mockErrorResponse = Throwable("Error response")
+    val appid = BuildConfig.API_KEY
 }

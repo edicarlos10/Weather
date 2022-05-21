@@ -8,7 +8,6 @@ import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.RelaxedMockK
 import io.reactivex.Single
-import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class GetWeatherForecastUseCaseTest : BaseTest() {
@@ -66,12 +65,12 @@ class GetWeatherForecastUseCaseTest : BaseTest() {
         every {
             repository.getWeatherForecast(
                 "London",
-                "58611e500e6bfe3dd41851e99a88a932"
+                appid
             )
         } returns
                 Single.just(expected)
 
-        useCase.execute("London", "58611e500e6bfe3dd41851e99a88a932")
+        useCase.execute("London", appid)
             .test()
             .assertValueAt(0, Event.loading())
             .assertValueAt(1) { (it as Event.Data).data == expected }
@@ -82,11 +81,11 @@ class GetWeatherForecastUseCaseTest : BaseTest() {
         every {
             repository.getWeatherForecast(
                 "London",
-                "58611e500e6bfe3dd41851e99a88a932"
+                appid
             )
         } returns Single.error(mockErrorResponse)
 
-        useCase.execute("London", "58611e500e6bfe3dd41851e99a88a932")
+        useCase.execute("London", appid)
             .test()
             .assertValueAt(0, Event.loading())
             .assertValueAt(1, Event.error(mockErrorResponse))

@@ -16,6 +16,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+        buildConfigField "String", "API_KEY", "${properties.getProperty('API_KEY')}"
     }
 
     buildTypes {
@@ -52,11 +56,11 @@ dependencies {
 //    annotationProcessor 'androidx.room:room-compiler:2.4.2'
 //    implementation 'androidx.room:room-ktx:2.4.2'
 
-    implementation 'com.squareup.okhttp3:mockwebserver:5.0.0-alpha.6'
-    implementation 'io.mockk:mockk:1.12.3'
-    implementation 'io.mockk:mockk-android:1.12.3'
-    implementation 'org.mockito:mockito-android:4.4.0'
-    implementation 'org.mockito:mockito-core:4.4.0'
+//    implementation 'com.squareup.okhttp3:mockwebserver:5.0.0-alpha.6'
+//    implementation 'io.mockk:mockk:1.12.3'
+//    implementation 'io.mockk:mockk-android:1.12.3'
+//    implementation 'org.mockito:mockito-android:4.4.0'
+//    implementation 'org.mockito:mockito-core:4.4.0'
 
     implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
