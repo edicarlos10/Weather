@@ -6,7 +6,7 @@ data class WeatherForecast(
     val base: String? = null, // stations
     val clouds: Clouds? = null,
     val cod: Int? = null, // 200
-    val coord: Coord?,
+    val coord: Coord? = null,
     val dt: Int? = null, // 1485789600
     val id: Int? = null, // 2643743
     val main: Main? = null,
