@@ -42,4 +42,4 @@ jobs:
         run: echo "apiid=\"\"" >> local.properties
 
       - name: Check Unit Test
-        run: ./gradlew test
+        run: ./gradlew :app:test :domain:test :network:test
