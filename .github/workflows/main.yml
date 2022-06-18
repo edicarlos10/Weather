@@ -35,6 +35,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+      - name: Touch local properties
+        run: touch local.properties
+
+      - name: Add Api Key
+        run: echo "apiid=\"\"" >> local.properties
 
       - name: Check Unit Test
-        run: ./gradlew :domain:test
+        run: ./gradlew test
