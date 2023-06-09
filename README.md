@@ -7,7 +7,7 @@ Aplicativo, um desafio, de consumo de API sobre previsão de tempo.
 
 Esse aplicativo foi construido seguindo a [Open Weather API](https://openweathermap.org/)
 
-Em resumo, foi demonstrado como criar um APP Android usando **Kotlin e Arquitetura limpa + Conceitos de SOLID** de _Previsão de tempo_
+Em resumo, foi demonstrado como criar um APP Android usando **Kotlin e Arquitetura limpa + Conceitos de SOLID** de _Previsão de tempo._
 
 # Como rodar
 Apenas clone o projeto, e sync o gradle via Android Studio.
