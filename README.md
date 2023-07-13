@@ -34,10 +34,19 @@ Outros detalhes podem ser _conferidos nos arquivos do projeto._
 Algumas melhorias _deverão ser feitas como a principal:_
 
 - Criar e melhorar a UI (**possivelmente será usado JetPack Compose**)
+- Também é necessário, para otimizar, criar um arquivo dependences e alinhar todos os .gradle que implementam as libs
+- Teste unitário para a camada de network
+- Integração com as actions do gitHub (rodar lint, unit testes por ex)
 
 Abaixo, segue um exemplo de como poderá ser a UI
 
 [Link de UI](https://www.behance.net/gallery/9650557/iOS7-Weather-App)
+
+# Testes
+Testes unitários foram criados para a camada de Domain. Elas englobam:
+- Use Cases
+
+Para executar os testes basta abrir o arquivo pelo android studio e apertar na flecha verde do inicio da classe de teste/
 
 # Licensa
 O código pode ser usado livremente, **isentando o autor** de qualquer responsabilidade de seu uso.
