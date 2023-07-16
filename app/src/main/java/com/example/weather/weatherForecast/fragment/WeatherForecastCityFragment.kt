@@ -14,7 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class WeatherForecastCityFragment : Fragment() {
     companion object{
-        private const val appid = "58611e500e6bfe3dd41851e99a88a932"   //Weather api key
+        private const val appid = ""   //Weather api key
         fun newInstance() : WeatherForecastCityFragment{
             val args = Bundle().apply {  }
             val fragment = WeatherForecastCityFragment()
