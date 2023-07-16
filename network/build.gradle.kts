@@ -47,6 +47,11 @@ dependencies {
     implementation (libs.squareup.retrofit2.moshi)
     implementation (libs.squareup.okhttp3)
 
+    //unit test
+    implementation (libs.mockk)
+    implementation (libs.mockito.android)
+    implementation (libs.mockito.core)
+
     //rxjava
     implementation (libs.reactivex.rxjava)
     implementation (libs.reactivex.rxjava.rxkotlin)
