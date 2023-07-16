@@ -7,7 +7,6 @@ lifecycle = "2.4.1"
 legacySupport = "1.0.0"
 junit = "4.13.2"
 testExtJunit = "1.1.3"
-testEspresso = "3.4.0"
 squareupRetrofit2Adapter = "2.9.0"
 squareupRetrofit2 = "2.9.0"
 squareupRetrofit2ConverterGson = "2.9.0"
@@ -20,6 +19,8 @@ reactivexRxJava = "2.2.21"
 reactivexRxKotlin = "2.4.0"
 reactivexRxAndroid = "2.1.1"
 koin = "3.2.0-beta-1"
+mockk = "1.12.3"
+mockito = "4.4.0"
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
@@ -31,7 +32,6 @@ androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle
 androidx-legacy-support = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupport" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext = { group = "androidx.test.ext", name = "junit", version.ref = "testExtJunit" }
-androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "testEspresso" }
 squareup-retrofit2-adapter = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version.ref = "squareupRetrofit2Adapter" }
 squareup-retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "squareupRetrofit2" }
 squareup-retrofit2-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "squareupRetrofit2ConverterGson" }
@@ -44,5 +44,8 @@ reactivex-rxjava = { group = "io.reactivex.rxjava2", name = "rxjava", version.re
 reactivex-rxjava-rxkotlin = { group = "io.reactivex.rxjava2", name = "rxkotlin", version.ref = "reactivexRxKotlin" }
 reactivex-rxjava-rxandroid = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref = "reactivexRxAndroid" }
 koin = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockito-android = { group = "org.mockito", name = "mockito-android", version.ref = "mockito" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
 
 [plugins]
