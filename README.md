@@ -21,9 +21,13 @@ A estrutura está **bem sólida**, e a arquitetura está bem definida.
 Seguindo com: 
 - **Clean Architecture, Conceitos de SOLID**
 - **MVVM, Live Data**
-- **Room DataBase**
-- **Retrofit**
 - **Kotlin como linguagem de programação**
+- **Retrofit para trabalhar com a API**
+- **Koin para DI**
+- **Glide para carregamento de imagens**
+- **Mockito para testes automatizados**
+- **RxJava para eventos assincronos**
+- **ViewBinding para apoio com a UI**
 
 Outros detalhes podem ser _conferidos nos arquivos do projeto._
 # Oque faltou
@@ -34,8 +38,6 @@ Outros detalhes podem ser _conferidos nos arquivos do projeto._
 Algumas melhorias _deverão ser feitas como a principal:_
 
 - Criar e melhorar a UI (**possivelmente será usado JetPack Compose**)
-- Também é necessário, para otimizar, criar um arquivo dependences e alinhar todos os .gradle que implementam as libs
-- Teste unitário para a camada de network
 - Integração com as actions do gitHub (rodar lint, unit testes por ex)
 
 Abaixo, segue um exemplo de como poderá ser a UI
@@ -43,7 +45,9 @@ Abaixo, segue um exemplo de como poderá ser a UI
 [Link de UI](https://www.behance.net/gallery/9650557/iOS7-Weather-App)
 
 # Testes
-Testes unitários foram criados para a camada de Domain. Elas englobam:
+Testes unitários foram criados para a camada de Network e Domain. Elas englobam:
+- Remote data 
+- Repository
 - Use Cases
 
 Para executar os testes basta abrir o arquivo pelo android studio e apertar na flecha verde do inicio da classe de teste/
