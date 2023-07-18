@@ -14,6 +14,13 @@ Apenas clone o projeto, e sync o gradle via Android Studio.
 
 E, crie um conta na [Open Weather](https://openweathermap.org/) habilitando uma **Key** para ser usada nas requisições
 
+Também é possivel utilizar duas maneiras para trabalhar com UI:
+- **XML**
+- **Compose**
+
+- Para usar com xml **comente** as linhas no Manifest **de 29 a 33.**
+- Para usar Compose as linhas **38 a 42** devem estar comentadas.
+
 Não deverá ter problemas.
 # Arquitetura e Tecnologias
 A estrutura está **bem sólida**, e a arquitetura está bem definida.
@@ -28,16 +35,17 @@ Seguindo com:
 - **Mockito para testes automatizados**
 - **RxJava para eventos assincronos**
 - **ViewBinding para apoio com a UI**
+- **JetPack Compose para UI**
 
 Outros detalhes podem ser _conferidos nos arquivos do projeto._
 # Oque faltou
-- Criar/Melhorar a parte visual (devido a disponibilidade de tempo, não foi possivel criar um visual)
+- Melhorar a parte visual
 - Melhoria de código, como refatorações e remoção de código morto
 
 # Melhorias
-Algumas melhorias _deverão ser feitas como a principal:_
+Algumas melhorias _deverão ser feitas:_
 
-- Criar e melhorar a UI (**possivelmente será usado JetPack Compose**)
+- Criar e melhorar a UI 
 - Integração com as actions do gitHub (rodar lint, unit testes por ex)
 
 Abaixo, segue um exemplo de como poderá ser a UI
