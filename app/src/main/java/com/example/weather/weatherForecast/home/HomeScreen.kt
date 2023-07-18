@@ -42,8 +42,7 @@ fun Body(weatherForecastViewModel: WeatherForecastViewModel?) {
     weatherState?.value?.let { state ->
         when (state) {
             is Event.Data -> {
-                val text = state.data?.weather?.get(0)?.description ?: ""
-                Text(text = text, modifier = Modifier.fillMaxSize())
+                CardContent(state.data)
             }
 
             is Event.Loading -> {
