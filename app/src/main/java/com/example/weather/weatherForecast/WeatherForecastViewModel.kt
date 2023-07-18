@@ -27,6 +27,11 @@ class WeatherForecastViewModel(
     val weatherForecast: LiveData<WeatherForecast?>
         get() = _weatherForecast
 
+    private val _weatherForecastState = MutableLiveData<Event<WeatherForecast?>>()
+    val weatherForecastState: LiveData<Event<WeatherForecast?>>
+        get() = _weatherForecastState
+
+    //for xml context
     fun getWeatherForecast(q: String, appid: String) {
         getWeatherForecastUseCase.execute(q, appid)
             .subscribeOn(scheduler.backgroundThread())
@@ -43,5 +48,18 @@ class WeatherForecastViewModel(
                     else -> Unit
                 }
             }.addTo(disposables)
+    }
+
+    fun getWeather(q: String, appid: String) {
+        getWeatherForecastUseCase.execute(q, appid)
+            .subscribeOn(scheduler.backgroundThread())
+            .observeOn(scheduler.mainThread())
+            .subscribe {
+                _weatherForecastState.value = it
+            }.addTo(disposables)
+    }
+
+    fun setLoading(){
+        _weatherForecastState.value = Event.loading()
     }
 }
