@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen(weatherForecastViewModel, "58611e500e6bfe3dd41851e99a88a932")
+                    HomeScreen(weatherForecastViewModel, "")
                 }
             }
         }
