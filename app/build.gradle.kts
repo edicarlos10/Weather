@@ -9,11 +9,12 @@ apply (plugin = "kotlin-kapt")
 apply (plugin = "androidx.navigation.safeargs")
 
 android {
-    compileSdk = 31
+    compileSdk = 33
 
     buildFeatures {
         dataBinding = true
         viewBinding = true
+        compose = true
     }
 
     defaultConfig {
@@ -24,8 +25,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
 
-     }
+    }
 
     buildTypes {
         release {
@@ -39,6 +43,14 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
@@ -56,6 +68,7 @@ dependencies {
     testImplementation (libs.junit)
     androidTestImplementation (libs.androidx.test.ext)
 
+    //retrofit
     implementation (libs.squareup.retrofit2.adapter)
     implementation (libs.squareup.retrofit2)
     implementation (libs.squareup.retrofit2.gson)
@@ -63,13 +76,24 @@ dependencies {
     implementation (libs.squareup.okhttp3)
     implementation (libs.squareup.okhttp3.logging)
     implementation (libs.squareup.moshi)
-
-
     implementation (libs.squareup.okhttp3.mockwebserver)
 
+    //rxJava
     implementation (libs.reactivex.rxjava)
     implementation (libs.reactivex.rxjava.rxkotlin)
     implementation (libs.reactivex.rxjava.rxandroid)
 
+    // Di koin
     implementation (libs.koin)
+
+    // compose
+    implementation(libs.icons.material)
+    implementation(libs.compose.runtime.livedata)
+    implementation(libs.compose.lifecycle.runtime.ktx)
+    implementation(libs.compose.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.compose.material3)
 }
