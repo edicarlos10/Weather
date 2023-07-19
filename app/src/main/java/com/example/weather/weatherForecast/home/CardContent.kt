@@ -23,12 +23,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.domain.weather.weatherForecast.model.WeatherForecast
 import com.example.weather.extension.convertLongToTime
 
 @Composable
 fun CardContent(weather: WeatherForecast?) {
     var expanded by remember { mutableStateOf(false) }
+    val linkToImg = "https://openweathermap.org/img/wn/"
 
     Card(
         modifier = Modifier.padding(vertical = 16.dp)
@@ -52,14 +54,23 @@ fun CardContent(weather: WeatherForecast?) {
                 val placeDate = weather?.dt?.toLong() ?: 0
 
                 Text(text = "$placeName, ${placeDate.convertLongToTime()}")
-                Text(
-                    text = weather?.weather?.get(0)?.main ?: "", style = MaterialTheme.typography.headlineMedium.copy(
-                        fontWeight = FontWeight.ExtraBold
+                Row {
+                    AsyncImage(
+                        model = linkToImg + weather?.weather?.get(0)?.icon + "@2x.png",
+                        contentDescription = "imagem do clima"
                     )
-                )
+                    Text(
+                        text = weather?.weather?.get(0)?.main ?: "",
+                        style = MaterialTheme.typography.headlineMedium.copy(
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    )
+                }
+
                 if (expanded) {
                     Text(
-                        text = (weather?.weather?.get(0)?.description ?: "").repeat(4),
+                        modifier = Modifier.padding(top = 16.dp),
+                        text = (weather?.weather?.get(0)?.description ?: ""),
                     )
                 }
             }

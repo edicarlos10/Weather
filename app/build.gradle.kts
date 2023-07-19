@@ -97,6 +97,6 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
 
-    // Glide
-    implementation (libs.glide)
+    // coil to im
+    implementation(libs.coil)
 }
