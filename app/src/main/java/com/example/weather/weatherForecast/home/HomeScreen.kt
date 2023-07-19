@@ -9,6 +9,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.domain.weather.base.Event
@@ -42,6 +43,7 @@ fun Body(weatherForecastViewModel: WeatherForecastViewModel?) {
     weatherState?.value?.let { state ->
         when (state) {
             is Event.Data -> {
+                LocalFocusManager.current.clearFocus()
                 CardContent(state.data)
             }
 
