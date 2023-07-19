@@ -10,6 +10,8 @@ interface IWeatherForecastApiClient {
     @GET("data/2.5/weather")
     fun getWeatherForecast(
         @Query("q") q: String,
-        @Query("appid") appid: String
+        @Query("appid") appid: String,
+        @Query("lang") lang: String = "pt_br",
+        @Query("units") units: String = "metric"
     ): Single<Response<WeatherForecastResponse>>
 }

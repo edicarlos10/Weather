@@ -31,11 +31,31 @@ import coil.request.ImageRequest
 import com.example.domain.weather.weatherForecast.model.WeatherForecast
 import com.example.weather.R
 import com.example.weather.extension.convertLongToTime
+import java.math.RoundingMode
 
 @Composable
 fun CardContent(weather: WeatherForecast?) {
     var expanded by remember { mutableStateOf(false) }
-    val linkToImg = "https://openweathermap.org/img/wn/"
+    val linkToImg by remember { mutableStateOf("https://openweathermap.org/img/wn/") }
+    val placeName by remember { mutableStateOf(weather?.name ?: "") }
+    val placeDate by remember { mutableStateOf(weather?.dt?.toLong() ?: 0) }
+    val weatherDescription by remember {
+        mutableStateOf(
+            weather?.weather?.get(0)?.description?.replaceFirstChar(Char::titlecase) ?: ""
+        )
+    }
+    val weatherMaxMin by remember {
+        mutableStateOf(
+            "Max/Min: " + weather?.main?.temp_max?.setScale(
+                0, RoundingMode.HALF_EVEN
+            )?.toString() + "°/" + weather?.main?.temp_min?.setScale(
+                0, RoundingMode.HALF_EVEN
+            )?.toString() + "°"
+        )
+    }
+    val weatherHumidity by remember {
+        mutableStateOf("Humidade: " + weather?.main?.humidity?.toString() + "%")
+    }
 
     Card(
         modifier = Modifier.padding(vertical = 16.dp)
@@ -55,33 +75,43 @@ fun CardContent(weather: WeatherForecast?) {
                     .weight(1f)
                     .padding(12.dp)
             ) {
-                val placeName = weather?.name ?: ""
-                val placeDate = weather?.dt?.toLong() ?: 0
-
                 Text(text = "$placeName, ${placeDate.convertLongToTime()}")
-                Row {
+                Row(
+                    modifier = Modifier.padding(top = 8.dp)
+                ) {
                     AsyncImage(
                         model = ImageRequest.Builder(context = LocalContext.current)
                             .data(linkToImg + weather?.weather?.get(0)?.icon + "@2x.png")
-                            .crossfade(true)
-                            .build(),
+                            .crossfade(true).build(),
                         error = painterResource(R.drawable.ic_broken_image),
                         placeholder = painterResource(R.drawable.loading_animation),
                         contentDescription = "imagem do clima",
                         contentScale = ContentScale.FillBounds
                     )
                     Text(
-                        text = weather?.weather?.get(0)?.main ?: "",
-                        style = MaterialTheme.typography.headlineMedium.copy(
+                        text = weatherDescription,
+                        style = MaterialTheme.typography.headlineSmall.copy(
                             fontWeight = FontWeight.ExtraBold
                         )
+                    )
+                    Text(
+                        modifier = Modifier.padding(start = 8.dp),
+                        style = MaterialTheme.typography.headlineSmall.copy(
+                            fontWeight = FontWeight.SemiBold
+                        ),
+                        text = (weather?.main?.temp?.setScale(0, RoundingMode.HALF_EVEN)
+                            ?.toString() + "°"),
                     )
                 }
 
                 if (expanded) {
                     Text(
                         modifier = Modifier.padding(top = 16.dp),
-                        text = (weather?.weather?.get(0)?.description ?: ""),
+                        text = weatherMaxMin,
+                    )
+                    Text(
+                        modifier = Modifier.padding(top = 8.dp),
+                        text = weatherHumidity,
                     )
                 }
             }
