@@ -20,11 +20,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.example.domain.weather.weatherForecast.model.WeatherForecast
+import com.example.weather.R
 import com.example.weather.extension.convertLongToTime
 
 @Composable
@@ -56,8 +61,14 @@ fun CardContent(weather: WeatherForecast?) {
                 Text(text = "$placeName, ${placeDate.convertLongToTime()}")
                 Row {
                     AsyncImage(
-                        model = linkToImg + weather?.weather?.get(0)?.icon + "@2x.png",
-                        contentDescription = "imagem do clima"
+                        model = ImageRequest.Builder(context = LocalContext.current)
+                            .data(linkToImg + weather?.weather?.get(0)?.icon + "@2x.png")
+                            .crossfade(true)
+                            .build(),
+                        error = painterResource(R.drawable.ic_broken_image),
+                        placeholder = painterResource(R.drawable.loading_animation),
+                        contentDescription = "imagem do clima",
+                        contentScale = ContentScale.FillBounds
                     )
                     Text(
                         text = weather?.weather?.get(0)?.main ?: "",
